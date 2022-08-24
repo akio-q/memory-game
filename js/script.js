@@ -8,10 +8,12 @@ const moves = document.getElementById('moves-count'),
       result = document.getElementById('result'),
       controls = document.querySelector('.controls-container');
 
-let cards;
-let interval;
-let firstCard = false;
-let secondCard = false;
+let cards,
+    interval,
+    firstCard = false,
+    secondCard = false,
+    firstCardValue,
+    secondCardValue;
 
 const items = [
     { name:'bee', image: 'img/bee.png' },
@@ -42,7 +44,7 @@ const timeGenerator = () => {
     }
 
     let secondsValue = seconds < 10 ? `0${seconds}` : seconds;
-    let minutesValue = minutes < 10 ? `0{minutes}` : minutes;
+    let minutesValue = minutes < 10 ? `0${minutes}` : minutes;
 
     timeValue.innerHTML = `<span>Time:</span> ${minutesValue}:${secondsValue}`;
 };
@@ -68,11 +70,20 @@ const generateRandom = (size = 4) => {
     return cardValues;
 };
 
+const stopGame = () => {
+    controls.classList.remove('hide');
+    stopButton.classList.add('hide');
+    startButton.classList.remove('hide');
+
+    clearInterval(interval);
+};
+
 const matrixGenerator = (cardValues, size = 4) => {
     gameContainer.innerHTML = '';
     cardValues = [...cardValues, ...cardValues];
 
     cardValues.sort(() => Math.random() - 0.5);
+    
 
     for (let i = 0; i < size * size; i++) {
         gameContainer.innerHTML += `
@@ -149,6 +160,8 @@ startButton.addEventListener('click', () => {
 
     initializer();
 });
+
+stopButton.addEventListener('click', stopGame); 
 
 const initializer = () => {
     result.innerText = '';

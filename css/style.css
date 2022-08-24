@@ -29,6 +29,15 @@ body {
     gap: 0.6em;
 }
 
+.stats-container {
+    text-align: right;
+    margin-bottom: 1.2em;
+}
+
+.stats-container span {
+    font-weight: 600;
+}
+
 .card-container {
     position: relative;
     width: 6.25em;
@@ -61,11 +70,11 @@ body {
     transform: rotateY(180deg);
 }
 
-.card-container.flipped.card-before {
+.card-container.flipped .card-before {
     transform: rotateY(180deg);
 }
 
-.card-container.flipped.card-after {
+.card-container.flipped .card-after {
     transform: rotateY(0deg);
 }
 
@@ -91,7 +100,7 @@ button {
 #stop {
     font-size: 1.1em;
     display: block;
-    margin: 1.1em auto;
+    margin: 1.1em auto 0 auto;
     background-color: #000;
     color: #fff;
 }
@@ -103,4 +112,17 @@ button {
 
 .hide {
     display: none;
+}
+
+#result {
+    text-align: center;
+}
+
+#result h2 {
+    font-size: 2.5em;
+}
+
+#result h4 {
+    font-size: 1.8em;
+    margin: 0.6em 0 1em 0;
 }
