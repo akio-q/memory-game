@@ -135,6 +135,21 @@ const matrixGenerator = (cardValues, size = 4) => {
     });
 };
 
+startButton.addEventListener('click', () => {
+    movesCount = 0;
+    seconds = 0;
+    minutes = 0;
+
+    controls.classList.add('hide');
+    stopButton.classList.remove('hide');
+    startButton.classList.add('hide');
+
+    interval = setInterval(timeGenerator, 1000);
+    moves.innerHTML = `<span>Moves:</span> ${movesCount}`;
+
+    initializer();
+});
+
 const initializer = () => {
     result.innerText = '';
     winCount = 0;
@@ -142,5 +157,3 @@ const initializer = () => {
     let cardValues = generateRandom();
     matrixGenerator(cardValues);
 };
-
-initializer();
