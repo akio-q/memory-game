@@ -44,5 +44,26 @@ const timeGenerator = () => {
     let secondsValue = seconds < 10 ? `0${seconds}` : seconds;
     let minutesValue = minutes < 10 ? `0{minutes}` : minutes;
 
-    timeValue.innerHTML = `<span>Time:</span>${minutesValue}:${secondsValue}`;
+    timeValue.innerHTML = `<span>Time:</span> ${minutesValue}:${secondsValue}`;
+};
+
+const movesCounter = () => {
+    movesCount += 1;
+    moves.innerHTML = `<span>Moves:</span> ${movesCount}`;
+};
+
+const generateRandom = (size = 4) => {
+    let tempArray = [...items];
+    let cardValues = [];
+
+    size = (size * size) / 2;
+
+    for (let i = 0; i < size; i++) {
+        const randomIndex = Math.floor(Math.random() * tempArray.length);
+
+        cardValues.push(tempArray[randomIndex]);
+        tempArray.splice(randomIndex, 1);
+    }
+
+    return cardValues;
 };
