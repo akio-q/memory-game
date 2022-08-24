@@ -124,7 +124,8 @@ const matrixGenerator = (cardValues, size = 4) => {
                         if (winCount == Math.floor(cardValues.length / 2)) {
                             result.innerHTML = `
                                 <h2>You Won</h2>
-                                <h4>Moves: ${movesCount}, Time: ${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</h4>
+                                <h5>${seconds <= 30 && minutes == 0 ? ` OMG! You are very fast!` : seconds > 30 || minutes == 1 && seconds == 0 ? `Good job!` : minutes == 1 && seconds > 1 ? `Not bad, try even faster!` : minutes == 2 && seconds >= 1 || minutes == 3 && seconds == 0 ? `So bad :( You need to try it again.` : `Very bad! It seems to me, you need to improve your memory.`}</h5>
+                                <h4>Moves: ${movesCount} | Time: ${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</h4>
                             `;
     
                             stopGame();
