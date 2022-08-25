@@ -127,7 +127,9 @@ const matrixGenerator = (cardValues, size = 4) => {
                                 <h4>Moves: ${movesCount} | Time: ${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}</h4>
                             `;
     
-                            stopGame();
+                            setTimeout(() => {
+                                stopGame();
+                            }, 800);
                         }
                     } else {
                         let [tempFirst, tempSecond] = [firstCard, secondCard];
