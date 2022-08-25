@@ -43,6 +43,7 @@ body {
     width: 6.25em;
     height: 6.25em;
     cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .card-before,
