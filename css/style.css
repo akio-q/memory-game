@@ -104,6 +104,7 @@ button {
     padding: 1em 1.5em;
     cursor: pointer;
     transition: .4s all;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 button:hover {
