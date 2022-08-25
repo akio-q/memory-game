@@ -83,7 +83,6 @@ const matrixGenerator = (cardValues, size = 4) => {
     cardValues = [...cardValues, ...cardValues];
 
     cardValues.sort(() => Math.random() - 0.5);
-    
 
     for (let i = 0; i < size * size; i++) {
         gameContainer.innerHTML += `
@@ -102,7 +101,7 @@ const matrixGenerator = (cardValues, size = 4) => {
 
     cards.forEach(card => {
         card.addEventListener('click', () => {
-            if (!card.classList.contains('matched')) {
+            if (!card.classList.contains('matched') && !card.classList.contains('flipped')) {
                 card.classList.add('flipped');
 
                 if (!firstCard) {
@@ -112,7 +111,7 @@ const matrixGenerator = (cardValues, size = 4) => {
                     movesCounter();
     
                     secondCard = card;
-                    let secondCardValue = card.getAttribute('data-card-value');
+                    secondCardValue = card.getAttribute('data-card-value');
     
                     if (firstCardValue == secondCardValue) {
                         firstCard.classList.add('matched');
@@ -147,6 +146,14 @@ const matrixGenerator = (cardValues, size = 4) => {
     });
 };
 
+const initializer = () => {
+    result.innerText = '';
+    winCount = 0;
+
+    let cardValues = generateRandom();
+    matrixGenerator(cardValues);
+};
+
 startButton.addEventListener('click', () => {
     movesCount = 0;
     seconds = 0;
@@ -163,11 +170,3 @@ startButton.addEventListener('click', () => {
 });
 
 stopButton.addEventListener('click', stopGame); 
-
-const initializer = () => {
-    result.innerText = '';
-    winCount = 0;
-
-    let cardValues = generateRandom();
-    matrixGenerator(cardValues);
-};
