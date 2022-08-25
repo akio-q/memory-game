@@ -1,4 +1,4 @@
 # memory-game
-Pet-project
+### Pet-project
 
 ![preview](./preview.PNG)
